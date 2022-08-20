@@ -1,0 +1,65 @@
+
+name: publish Node.js Package
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  #  build:
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - uses: actions/checkout@v2
+  #      - uses: actions/setup-node@v1
+  #        with:
+  #          node-version: 12
+  #      - run: yarn install
+  #      - run: yarn test
+
+  publish-gpr:
+    #    needs: build
+    runs-on: ubuntu-latest
+    #always() always make sure the step gets executed, even if a previous one failed
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+      - run: yarn install
+      - run: yarn add typescript-json-schema -g
+      - run: yarn add quicktype
+      - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
+      #uses is used for running an actual predefined github action that you can find on the marketplace of github, which can range from a bunch of things including just installing stuff to the system. run is just running a linux/node command
+      - run: tsc
+        #yarn version just changes the version number inside package.config to be +1 than the previous version. Also actually does a commit
+      - run: git add dist
+#      - run: yarn quicktype --lang python --src-lang schema  ./quicktype-schema/nijisanji_schema.json#/definitions/ -o ./python/src/nijisanjitypings/models.py
+
+      - run: git add .
+      - name: Try to commit
+        id: attempt-commit
+        continue-on-error: true
+        run: git commit -m "Updated distribution files"
+        #Yarn version auto commits to TAGS
+      - run: yarn version --minor
+
+      #git push --tags does not push commits, it only push tags
+      - run: git push
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - run: git push -f --tags
+  Undo:
+    #Seperate jobs do not share the same environment so everything would have to be reinstalled
+    runs-on: ubuntu-latest
+    needs: [publish-gpr]
+    if: failure()
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Undo Latest Commit
+        uses: fabriziocacicia/undo-latest-commit-action@v0.1.0
+

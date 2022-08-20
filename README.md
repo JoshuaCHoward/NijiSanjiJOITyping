@@ -1,0 +1,1 @@
+NijiSanji typings for python and typescript
