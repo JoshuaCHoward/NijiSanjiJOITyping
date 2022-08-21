@@ -1,6 +1,6 @@
 {
   "name": "@JoshuaCHoward/nijisanjijoitypings",
-  "version": "1.29.0",
+  "version": "1.31.0",
   "main": "./dist/schema.js",
   "description": "Typings for NijiSanjiJOI",
   "license": "MIT",
