@@ -42,7 +42,7 @@ jobs:
         id: attempt-commit
         continue-on-error: true
         run: git commit -m "Updated distribution files"
-        #Yarn version auto commits to TAGS
+        #Yarn version auto commits to both TAGS and regular COMMIT history
       - run: yarn version --minor
 
       #git push --tags does not push commits, it only push tags
