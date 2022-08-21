@@ -1,13 +1,12 @@
 {
   "name": "@JoshuaCHoward/nijisanjijoitypings",
-  "version": "1.35.0",
+  "version": "1.36.0",
   "main": "./dist/index.js",
   "description": "Typings for NijiSanjiJOI",
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "15.1.1",
     "@types/hapi__joi": "15.0.4",
-    "joi-to-typescript": "^4.0.5",
     "quicktype": "^15.0.261",
     "ts-node": "^10.8.2",
     "typescript": "^4.7.4",
