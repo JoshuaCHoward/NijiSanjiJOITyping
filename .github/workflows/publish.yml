@@ -32,7 +32,7 @@ jobs:
       - run: yarn add quicktype
       - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
       #uses is used for running an actual predefined github action that you can find on the marketplace of github, which can range from a bunch of things including just installing stuff to the system. run is just running a linux/node command
-      - run: tsc
+      - run: tsc --outFile ./dist/index.js
         #yarn version just changes the version number inside package.config to be +1 than the previous version. Also actually does a commit
       - run: git add dist
 #      - run: yarn quicktype --lang python --src-lang schema  ./quicktype-schema/nijisanji_schema.json#/definitions/ -o ./python/src/nijisanjitypings/models.py
