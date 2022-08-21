@@ -24,7 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.YourVoiceTranscriptTheirVoiceSchema = exports.ChangedPairingSchema = void 0;
-const joi_1 = __importStar(require("joi"));
+const joi_1 = __importStar(require("@hapi/joi"));
 //object.shape and object literally do the same thing, object shape is just the long forms
 //nested objects are just so you don't have to write multiple short objects. you can reuse an object to check multiple fields and for nested fields
 //placeholder comments that get fixed final test again. but previous commit before this worked with everything. recheck
