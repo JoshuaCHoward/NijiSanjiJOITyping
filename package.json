@@ -1,7 +1,7 @@
 {
   "name": "@JoshuaCHoward/nijisanjijoitypings",
   "version": "1.34.0",
-  "main": "./dist/schema.js",
+  "main": "./dist/index.js",
   "description": "Typings for NijiSanjiJOI",
   "license": "MIT",
   "dependencies": {
@@ -14,7 +14,7 @@
     "typescript-json-schema": "^0.54.0",
     "yup": "^0.32.11"
   },
-  "types": "./dist/schema.d.ts",
+  "types": "./dist/index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -26,7 +26,7 @@
     "type": "git",
     "url": "https://github.com/JoshuaCHoward/NijiSanjiJoiTypings"
   },
-  "typings": "./dist/schema.d.ts",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "typescript-schema": "yarn typescript-json-schema \"./tsconfig.json\" \"*\" --out ./quicktype-schema/nijisanji_schema.json --required\n"
   }
