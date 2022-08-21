@@ -5,7 +5,8 @@
   "description": "Typings for NijiSanjiJOI",
   "license": "MIT",
   "dependencies": {
-    "joi": "^17.6.0",
+    "@hapi/joi": "15.1.1",
+    "@types/hapi__joi": "15.0.4",
     "joi-to-typescript": "^4.0.5",
     "quicktype": "^15.0.261",
     "ts-node": "^10.8.2",

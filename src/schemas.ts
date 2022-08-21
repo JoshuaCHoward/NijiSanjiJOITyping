@@ -1,4 +1,4 @@
-import Joi,{object} from 'joi'
+import Joi,{object} from '@hapi/joi'
 
 //object.shape and object literally do the same thing, object shape is just the long forms
 //nested objects are just so you don't have to write multiple short objects. you can reuse an object to check multiple fields and for nested fields
