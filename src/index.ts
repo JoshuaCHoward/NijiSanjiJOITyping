@@ -1,0 +1,2 @@
+//Literally only here because no other way to contancate all files together even with outFile in commonJS. Must keep doing this for all files that want to be exported. Double check the zustand library as a reference to see how to do a package
+export * from './schemas'
