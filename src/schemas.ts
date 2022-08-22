@@ -18,4 +18,8 @@ export const YourVoiceTranscriptTheirVoiceSchema = object({
     soundId: Joi.string(),
 })
 
+export const ListYourVoiceTranscriptTheirVoiceSchema = object({
+    items: Joi.array().items(YourVoiceTranscriptTheirVoiceSchema).required()
+})
+
 
