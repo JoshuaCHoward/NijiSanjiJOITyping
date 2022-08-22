@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.YourVoiceTranscriptTheirVoiceSchema = exports.ChangedPairingSchema = void 0;
+exports.ListYourVoiceTranscriptTheirVoiceSchema = exports.YourVoiceTranscriptTheirVoiceSchema = exports.ChangedPairingSchema = void 0;
 const joi_1 = __importStar(require("@hapi/joi"));
 //object.shape and object literally do the same thing, object shape is just the long forms
 //nested objects are just so you don't have to write multiple short objects. you can reuse an object to check multiple fields and for nested fields
@@ -39,4 +39,7 @@ exports.YourVoiceTranscriptTheirVoiceSchema = (0, joi_1.object)({
     theirVoice: exports.ChangedPairingSchema.required(),
     characterId: joi_1.default.string().required(),
     soundId: joi_1.default.string(),
+});
+exports.ListYourVoiceTranscriptTheirVoiceSchema = (0, joi_1.object)({
+    items: joi_1.default.array().items(exports.YourVoiceTranscriptTheirVoiceSchema).required()
 });
