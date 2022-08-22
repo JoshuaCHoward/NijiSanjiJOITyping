@@ -1,4 +1,5 @@
-import Joi,{object} from '@hapi/joi'
+import Joi, {object} from '@hapi/joi'
+import "joi-extract-type"
 
 //object.shape and object literally do the same thing, object shape is just the long forms
 //nested objects are just so you don't have to write multiple short objects. you can reuse an object to check multiple fields and for nested fields
@@ -17,6 +18,7 @@ export const YourVoiceTranscriptTheirVoiceSchema = object({
     characterId: Joi.string().required(),
     soundId: Joi.string(),
 })
+
 
 export const ListYourVoiceTranscriptTheirVoiceSchema = object({
     items: Joi.array().items(YourVoiceTranscriptTheirVoiceSchema).required()
